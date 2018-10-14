@@ -1,0 +1,157 @@
+<% include partials/head %>
+
+<body style="background: whitesmoke">
+
+<div class="second-angle"></div>  
+<div class="first-angle"></div>
+
+
+<div class="container">
+  <div class="py-5 text-center mt-3">
+    <h2 class="text-center"><%= campaign.business_name %></h2>
+    <p class="lead"><%= campaign.description %></p>
+  </div>
+
+  <div class="row">
+    <div class="col-md-4 order-md-2 mb-4">
+      <h3 class="d-flex justify-content-between align-items-center"><%= campaign.name %> <%= campaign.flag %></h3>
+      <p class="text-small text-muted text-uppercase"><small>In <strong><%= campaign.recipient_location %></strong> From <strong><%= campaign.country %></strong></small></p>
+      
+      <h1>🇳🇬</h1>
+
+      <br>
+
+      <span class="text-small text-muted text-uppercase"><small><strong><%= moment(campaign.deadline, "X").diff(moment(), 'days') %> Days Left</strong></small></span>
+      <div class="total-goal-bar">
+        <div class="amount-raised-bar" style="width: <%= (campaign.amount_raised / campaign.loan_amount) * 100  %>%"></div>
+      </div>
+      
+      <h3 class="amount-raised">$<%= campaign.amount_raised %></h3>
+      <span class="text-small text-muted text-uppercase"><small>pledged of $<%= campaign.loan_amount %> goal</small></span>
+
+      <button type="button" class="btn btn-dark mt-3 mb-3 w-100 lend" data-toggle="modal" data-target=".bd-example-modal-lg">Lend Now</button>
+
+      <h5 class="mt-4">Loan Terms</h5>
+      <hr>
+      <p><strong>Loan Length:</strong> <%= campaign.loan_length %> months</p>
+      <p><strong>Repayment Schedule:</strong> <%= campaign.repayment_schedule %></p>
+      <p><strong>Local Partner:</strong> <%= campaign.partner %></p>
+      <p><strong>Verified by Partner:</strong> <%- campaign.partner_verified ? '<i class="fas fa-check-circle green"></i>' : '' %></p>
+      <p><strong>Business Type:</strong> <%= campaign.business_type %></p>
+    </div>
+
+    <div class="col-md-8 order-md-1">
+      
+      <img src="<%= campaign.image_url %>" class="w-100 col-md-12"/>
+
+      <div class="about-campaign p-3">
+        <hr>
+        <%- campaign.story %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Loan to <%= campaign.name %></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        <div class="thank-you hide">
+          <p>Thank you for your providing a meaningful loan to an immigrant entreprenuer</p>
+        </div>
+
+        <form class="payment-form">
+          
+          <div class="col-md-10 mb-3" style="margin: 0 auto;">
+            <div class="form-group">
+              <input type="text" class="form-control" id="first-name" placeholder="First Name" required>
+            </div>
+          
+            <div class="form-group">
+              <input type="text" class="form-control" id="last-name" placeholder="Last Name" required>
+            </div>
+
+            <label for="amount">Amount <small>(Minimum $20, up to $<%= (campaign.loan_amount - campaign.amount_raised) %>)</small></label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">$</span>
+              </div>
+              <input type="number" class="form-control" id="amount" min="20" max="<%= (campaign.loan_amount - campaign.amount_raised) %>" required>
+            </div>
+          </div>
+          
+          <center><button class="btn btn-secondary btn-lg" id="stripe-button">Pay</button></center>
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="text-muted text-center text-small">
+  <!-- <ul class="list-inline">
+    <li class="list-inline-item"><a href="#">Privacy</a></li>
+    <li class="list-inline-item"><a href="#">Terms</a></li>
+    <li class="list-inline-item"><a href="#">Support</a></li>
+  </ul> -->
+</footer>
+
+<% include partials/footer %>
+
+<script type="text/javascript">
+  
+  document.querySelector("#stripe-button").addEventListener("click", function(e) {
+
+    e.preventDefault();
+
+    var token = function(res){
+      res.first_name = document.querySelector("#first-name").value
+      res.last_name = document.querySelector("#last-name").value
+
+      console.log(res)
+
+      var request = {
+        method: "POST",
+        credentials: 'include',
+        body: JSON.stringify(res),
+        headers: { 'Content-Type': 'application/json' }
+      }
+
+      fetch('/execute', request).then(res => {
+        if (res.status == 200) {
+          document.querySelector(".payment-form").classList.add("hide")
+          document.querySelector(".thank-you").classList.remove("hide")
+
+          setTimeout(function() {
+            location.reload();
+          }, 3000);
+        }
+      });
+    };
+
+    StripeCheckout.open({
+      key: 'pk_i1Fz1PQNQN6yukDmQQ0MTK5wMxUCu',
+      // key:         'pk_qeCkCX0KzKjgM2DOPcWgDNyfhFglK',
+      amount:      document.querySelector("#amount").value * 100,
+      name:        'Public Equity',
+      image:       'https://s3.amazonaws.com/public-equity/stripe.png',
+      description: 'Loan to <%= campaign.name %>',
+      panelLabel:  'Execute Loan',
+      token:       token
+    });
+
+    return false;
+  });
+
+</script>
+
+</body>
+</html>

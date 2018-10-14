@@ -1,0 +1,556 @@
+<% include partials/head %>
+
+<body style="background: whitesmoke">
+  
+<div class="second-angle"></div>  
+<div class="first-angle"></div>
+
+<div class="container thank-you hide">
+  <div class="py-5 text-center">
+    <h2>Thank you</h2>
+    <p class="lead">Thank you for submitting a loan with Public Equity. The review process will begin once the loan has been received by your sponsored organization. You should expect a response within two business days.</p>
+    <a href="/" class="btn btn-secondary mt-3" style="padding: 10px 15px; font-size: 20px; border-width: 2px">Home</a>
+  </div>
+
+  <br><br><br><br><br><br><br><br>
+</div>
+
+<div class="container main">
+  <div class="py-5 text-center">
+    <!-- <img class="d-block mx-auto mb-4" src="../../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72"> -->
+    <h2>Apply for a Loan</h2>
+    <p class="lead">See if you qualify for a Public Equity loan by entering the amount and purpose of the loan below. The loan request will be reviewed by your sponsored organization as part of the review process. Your loan is only possible by the support and funding of our community.</p>
+  </div>
+
+  <div class="row">
+    <!-- <div class="col-md-4 order-md-2 mb-4">
+      <h4 class="d-flex justify-content-between align-items-center mb-3">
+        <span class="text-muted">Your Application</span>
+      </h4>
+      <ul class="list-group mb-3">
+        <li class="list-group-item d-flex justify-content-between lh-condensed">
+          <div>
+            <h6 class="my-0">About you</h6>
+            <span class="text-muted"><small>First Name</small></span><br>
+            <span class="text-muted"><small>Last Name</small></span><br>
+            <span class="text-muted"><small>Email</small></span><br>
+            <span class="text-muted"><small>Phone Number</small></span><br>
+          </div>
+
+          <span class="text-muted"><i class="fas fa-check-circle green"></i></span>
+        </li>
+        
+        <li class="list-group-item d-flex justify-content-between lh-condensed">
+          <div>
+            <h6 class="my-0">Background</h6>
+            <span class="text-muted"><small>Country of Origin</small></span><br>
+          </div>
+          <span class="text-muted"><i class="fas fa-check-circle green"></i></span>
+        </li>
+        
+        <li class="list-group-item d-flex justify-content-between lh-condensed">
+          <div>
+            <h6 class="my-0">About your Business</h6>
+            <span class="text-muted"><small>Business Name</small></span><br>
+            <span class="text-muted"><small>Type of Business</small></span><br>
+            <span class="text-muted"><small>Requested Loan Amount</small></span><br>
+            <span class="text-muted"><small>What will the loan be used for?</small></span><br>
+          </div>
+          <span class="text-muted"><i class="fas fa-check-circle green"></i></span>
+        </li>
+      </ul>
+    </div> -->
+
+    <div class="col-md-8" style="margin: 0 auto;">
+      <h4 class="mb-3">About you</h4>
+      <form id="application-form" class="needs-validation">
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="firstName">First name</label>
+            <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+            <div class="invalid-feedback">
+              Valid first name is required.
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="lastName">Last name</label>
+            <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+            <div class="invalid-feedback">
+              Valid last name is required.
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" placeholder="" value="" required>
+            <div class="invalid-feedback">
+              Please enter a valid email address.
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="phone">Phone Number</label>
+            <input type="tel" class="form-control" id="phone" placeholder="" value="" required>
+            <div class="invalid-feedback">
+              Please enter a valid phone number.
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-12 mb-3">
+            <label for="image_url">Image</label>
+            <input type="text" class="form-control" id="image_url" placeholder="" value="" required>
+            <div class="invalid-feedback">
+              Please enter a valid image
+            </div>
+          </div>
+        </div>
+        
+         <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="address">Country of Origin</label>
+            <select class="form-control" id="country" required>
+              <option value="">-- Select a Country --</option>
+              <option>Afghanistan</option>
+              <option>Åland Islands</option>
+              <option>Albania</option>
+              <option>Algeria</option>
+              <option>American Samoa</option>
+              <option>Andorra</option>
+              <option>Angola</option>
+              <option>Anguilla</option>
+              <option>Antarctica</option>
+              <option>Antigua and Barbuda</option>
+              <option>Argentina</option>
+              <option>Armenia</option>
+              <option>Aruba</option>
+              <option>Australia</option>
+              <option>Austria</option>
+              <option>Azerbaijan</option>
+              <option>Bahamas</option>
+              <option>Bahrain</option>
+              <option>Bangladesh</option>
+              <option>Barbados</option>
+              <option>Belarus</option>
+              <option>Belgium</option>
+              <option>Belize</option>
+              <option>Benin</option>
+              <option>Bermuda</option>
+              <option>Bhutan</option>
+              <option>Bolivia, Plurinational State of</option>
+              <option>Bonaire, Sint Eustatius and Saba</option>
+              <option>Bosnia and Herzegovina</option>
+              <option>Botswana</option>
+              <option>Bouvet Island</option>
+              <option>Brazil</option>
+              <option>British Indian Ocean Territory</option>
+              <option>Brunei Darussalam</option>
+              <option>Bulgaria</option>
+              <option>Burkina Faso</option>
+              <option>Burundi</option>
+              <option>Cambodia</option>
+              <option>Cameroon</option>
+              <option>Canada</option>
+              <option>Cape Verde</option>
+              <option>Cayman Islands</option>
+              <option>Central African Republic</option>
+              <option>Chad</option>
+              <option>Chile</option>
+              <option>China</option>
+              <option>Christmas Island</option>
+              <option>Cocos (Keeling) Islands</option>
+              <option>Colombia</option>
+              <option>Comoros</option>
+              <option>Congo</option>
+              <option>Congo, the Democratic Republic of the</option>
+              <option>Cook Islands</option>
+              <option>Costa Rica</option>
+              <option>Côte d'Ivoire</option>
+              <option>Croatia</option>
+              <option>Cuba</option>
+              <option>Curaçao</option>
+              <option>Cyprus</option>
+              <option>Czech Republic</option>
+              <option>Denmark</option>
+              <option>Djibouti</option>
+              <option>Dominica</option>
+              <option>Dominican Republic</option>
+              <option>Ecuador</option>
+              <option>Egypt</option>
+              <option>El Salvador</option>
+              <option>Equatorial Guinea</option>
+              <option>Eritrea</option>
+              <option>Estonia</option>
+              <option>Ethiopia</option>
+              <option>Falkland Islands (Malvinas)</option>
+              <option>Faroe Islands</option>
+              <option>Fiji</option>
+              <option>Finland</option>
+              <option>France</option>
+              <option>French Guiana</option>
+              <option>French Polynesia</option>
+              <option>French Southern Territories</option>
+              <option>Gabon</option>
+              <option>Gambia</option>
+              <option>Georgia</option>
+              <option>Germany</option>
+              <option>Ghana</option>
+              <option>Gibraltar</option>
+              <option>Greece</option>
+              <option>Greenland</option>
+              <option>Grenada</option>
+              <option>Guadeloupe</option>
+              <option>Guam</option>
+              <option>Guatemala</option>
+              <option>Guernsey</option>
+              <option>Guinea</option>
+              <option>Guinea-Bissau</option>
+              <option>Guyana</option>
+              <option>Haiti</option>
+              <option>Heard Island and McDonald Islands</option>
+              <option>Holy See (Vatican City State)</option>
+              <option>Honduras</option>
+              <option>Hong Kong</option>
+              <option>Hungary</option>
+              <option>Iceland</option>
+              <option>India</option>
+              <option>Indonesia</option>
+              <option>Iran, Islamic Republic of</option>
+              <option>Iraq</option>
+              <option>Ireland</option>
+              <option>Isle of Man</option>
+              <option>Israel</option>
+              <option>Italy</option>
+              <option>Jamaica</option>
+              <option>Japan</option>
+              <option>Jersey</option>
+              <option>Jordan</option>
+              <option>Kazakhstan</option>
+              <option>Kenya</option>
+              <option>Kiribati</option>
+              <option>Korea, Democratic People's Republic of</option>
+              <option>Korea, Republic of</option>
+              <option>Kuwait</option>
+              <option>Kyrgyzstan</option>
+              <option>Lao People's Democratic Republic</option>
+              <option>Latvia</option>
+              <option>Lebanon</option>
+              <option>Lesotho</option>
+              <option>Liberia</option>
+              <option>Libya</option>
+              <option>Liechtenstein</option>
+              <option>Lithuania</option>
+              <option>Luxembourg</option>
+              <option>Macao</option>
+              <option>Macedonia, the former Yugoslav Republic of</option>
+              <option>Madagascar</option>
+              <option>Malawi</option>
+              <option>Malaysia</option>
+              <option>Maldives</option>
+              <option>Mali</option>
+              <option>Malta</option>
+              <option>Marshall Islands</option>
+              <option>Martinique</option>
+              <option>Mauritania</option>
+              <option>Mauritius</option>
+              <option>Mayotte</option>
+              <option>Mexico</option>
+              <option>Micronesia, Federated States of</option>
+              <option>Moldova, Republic of</option>
+              <option>Monaco</option>
+              <option>Mongolia</option>
+              <option>Montenegro</option>
+              <option>Montserrat</option>
+              <option>Morocco</option>
+              <option>Mozambique</option>
+              <option>Myanmar</option>
+              <option>Namibia</option>
+              <option>Nauru</option>
+              <option>Nepal</option>
+              <option>Netherlands</option>
+              <option>New Caledonia</option>
+              <option>New Zealand</option>
+              <option>Nicaragua</option>
+              <option>Niger</option>
+              <option>Nigeria</option>
+              <option>Niue</option>
+              <option>Norfolk Island</option>
+              <option>Northern Mariana Islands</option>
+              <option>Norway</option>
+              <option>Oman</option>
+              <option>Pakistan</option>
+              <option>Palau</option>
+              <option>Palestinian Territory, Occupied</option>
+              <option>Panama</option>
+              <option>Papua New Guinea</option>
+              <option>Paraguay</option>
+              <option>Peru</option>
+              <option>Philippines</option>
+              <option>Pitcairn</option>
+              <option>Poland</option>
+              <option>Portugal</option>
+              <option>Puerto Rico</option>
+              <option>Qatar</option>
+              <option>Réunion</option>
+              <option>Romania</option>
+              <option>Russian Federation</option>
+              <option>Rwanda</option>
+              <option>Saint Barthélemy</option>
+              <option>Saint Helena, Ascension and Tristan da Cunha</option>
+              <option>Saint Kitts and Nevis</option>
+              <option>Saint Lucia</option>
+              <option>Saint Martin (French part)</option>
+              <option>Saint Pierre and Miquelon</option>
+              <option>Saint Vincent and the Grenadines</option>
+              <option>Samoa</option>
+              <option>San Marino</option>
+              <option>Sao Tome and Principe</option>
+              <option>Saudi Arabia</option>
+              <option>Senegal</option>
+              <option>Serbia</option>
+              <option>Seychelles</option>
+              <option>Sierra Leone</option>
+              <option>Singapore</option>
+              <option>Sint Maarten (Dutch part)</option>
+              <option>Slovakia</option>
+              <option>Slovenia</option>
+              <option>Solomon Islands</option>
+              <option>Somalia</option>
+              <option>South Africa</option>
+              <option>South Georgia and the South Sandwich Islands</option>
+              <option>South Sudan</option>
+              <option>Spain</option>
+              <option>Sri Lanka</option>
+              <option>Sudan</option>
+              <option>Suriname</option>
+              <option>Svalbard and Jan Mayen</option>
+              <option>Swaziland</option>
+              <option>Sweden</option>
+              <option>Switzerland</option>
+              <option>Syrian Arab Republic</option>
+              <option>Taiwan, Province of China</option>
+              <option>Tajikistan</option>
+              <option>Tanzania, United Republic of</option>
+              <option>Thailand</option>
+              <option>Timor-Leste</option>
+              <option>Togo</option>
+              <option>Tokelau</option>
+              <option>Tonga</option>
+              <option>Trinidad and Tobago</option>
+              <option>Tunisia</option>
+              <option>Turkey</option>
+              <option>Turkmenistan</option>
+              <option>Turks and Caicos Islands</option>
+              <option>Tuvalu</option>
+              <option>Uganda</option>
+              <option>Ukraine</option>
+              <option>United Arab Emirates</option>
+              <option>United Kingdom</option>
+              <option>Uruguay</option>
+              <option>Uzbekistan</option>
+              <option>Vanuatu</option>
+              <option>Venezuela, Bolivarian Republic of</option>
+              <option>Viet Nam</option>
+              <option>Virgin Islands, British</option>
+              <option>Wallis and Futuna</option>
+              <option>Western Sahara</option>
+              <option>Yemen</option>
+              <option>Zambia</option>
+              <option>Zimbabwe</option>
+            </select>
+
+            <div class="invalid-feedback">
+              Please select your country of origin
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label for="address">Current Community</label>
+            <select class="form-control" id="community" required>
+              <option value="Saint Louis" selected>Saint Louis</option>
+            </select>
+
+            <div class="invalid-feedback">
+              Please select your community
+            </div>
+          </div>
+        </div>
+
+        <br>
+        
+        <h4 class="mb-3">About your Business</h4>
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="business-name">Business Name</label>
+            <input type="text" class="form-control" id="business-name">
+            <div class="invalid-feedback">
+              Please enter a valid name
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="business-type">Type of Business</label>
+            <select class="form-control" id="business-type" required>
+              <option value="">-- Select One --</option>
+              <option>Beauty</option>
+              <option>Clothing</option>
+              <option>Childcare</option>
+              <option>Dry Cleaning</option>
+              <option>Healthcare</option>
+              <option>Education</option>
+              <option>Food or Restaurant</option>
+              <option>General Labor</option>
+              <option>Housekeeping</option>
+              <option>Store (General Retail)</option>
+              <option>Technology</option>
+              <option>Transportation</option>
+              <option>Other</option>
+            </select>
+
+            <div class="invalid-feedback">
+              Please select your community
+            </div>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-md-12">
+            <label for="description">Please provide a brief description of your project <span class="text-muted"><small>(limit of 100 characters)</small></span></label>
+            <textarea class="form-control" id="description" rows="2" maxlength="100"></textarea>
+          </div>
+        </div>
+
+        <br>
+
+        <div class="row">
+          <div class="col-md-12">
+            <label for="story">Tell us your story</label>
+            <textarea class="form-control" id="story" rows="8"></textarea>
+          </div>
+        </div>
+
+        <br>
+        
+        <h4 class="mb-3">Your Loan Terms</h4>
+
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="amount">Loan Amount <span class="text-muted"><small>(minimum $100, maximum $10,000)</small></span></label>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text">$</span>
+              </div>
+              <input type="number" class="form-control" id="amount" min="100" max="10000" required>
+              <div class="invalid-feedback" style="width: 100%;">
+                An amount is required
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-3">
+            <label for="length-of-loan">Length of Loan</label>
+            <select class="form-control" id="length-of-loan" required>
+              <option value="0">-- Select Length --</option>
+              <option value="6">6 Months</option>
+              <option value="12">12 Months</option>
+              <option value="18">18 Months</option>
+            </select>
+
+            <div class="invalid-feedback">
+              Please select what the loan will be used for
+            </div>
+          </div>
+        </div>
+
+        <div>Your monthly loan payment: <strong><span class="payment-amount">$0</span></strong></div>
+
+        <div class="row">
+          <div class="col-md-6 mt-5 mb-3">
+            <label for="sponsor-organization"><strong>Sponsor Organization</strong></label>
+            <select class="form-control" id="sponsor-organization" required>
+              <option value="">-- Select an Organization --</option>
+              <option value="International Institute of St Louis">International Institute of St Louis</option>
+              <option value="St Louis Regional Chamber of Commerce">St Louis Regional Chamber of Commerce</option>
+            </select>
+
+            <div class="invalid-feedback">
+              Please select what the loan will be used for
+            </div>
+          </div>
+        </div>
+
+        <hr class="mb-4">
+        <button class="btn btn-lg btn-block lend" type="submit">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<footer class="mt-5 text-muted text-center text-small"></footer>
+
+<% include partials/footer %>
+
+
+<script type="text/javascript">
+  const $amountField = document.querySelector("#amount");
+  const $lengthField = document.querySelector("#length-of-loan");
+  const $paymentAmount = document.querySelector("span.payment-amount");
+  const $applicationForm = document.querySelector("#application-form")
+
+  function calculateLoanAmount() {
+    if ($lengthField.value == 0)
+      return 
+
+    const paymentAmount = ($lengthField.value !== 0 && $amountField.value) ? Math.round($amountField.value / $lengthField.value) : 0;
+    $paymentAmount.innerText = "$"+paymentAmount.toString();
+  }
+
+  $amountField.addEventListener("keyup", function(e) {
+    e.preventDefault();
+    calculateLoanAmount()
+  });
+
+  $lengthField.addEventListener("change", function(e) {
+    e.preventDefault();
+    calculateLoanAmount()
+  });
+
+  $applicationForm.addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const data = {
+      first_name: document.querySelector("#firstName").value,
+      last_name: document.querySelector("#lastName").value,
+      email: document.querySelector("#email").value,
+      phone: document.querySelector("#phone").value,
+      image_url: document.querySelector("#image_url").value,
+      country: document.querySelector("#country").value,
+      business_name: document.querySelector("#business-name").value,
+      business_type: document.querySelector("#business-type").value,
+      description: document.querySelector("#description").value,
+      story: document.querySelector("#story").value,
+      loan_amount: document.querySelector("#amount").value,
+      loan_length: document.querySelector("#length-of-loan").value,
+      partner: document.querySelector("#sponsor-organization").value
+    }
+
+    var request = {
+      method: "POST",
+      credentials: 'include',
+      body: JSON.stringify(data),
+      headers: { 'Content-Type': 'application/json' }
+    }
+
+    fetch('/apply', request).then(res => {
+      if (res.status == 200) {
+        document.querySelector(".container.main").classList.add("hide")
+        document.querySelector(".container.thank-you").classList.remove("hide")
+      }
+    });
+  })
+</script>
+
+</body>
+</html>

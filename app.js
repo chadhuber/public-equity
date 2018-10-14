@@ -31,17 +31,26 @@ app.use(awsServerlessExpressMiddleware.eventContext());
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 
-// const routes = {
-//   campaign: require("./routes/campaign"),
-//   login:    require("./routes/login")
-// }
+const routes = {
+  apply: require("./routes/apply"),
+  home: require("./routes/home"),
+  campaign: require("./routes/campaign"),
+  execute: require("./routes/execute"),
+  // login:    require("./routes/login")
+}
 
 /* Static Assets */
 app.use('/assets', express.static('assets'));
 
 /* Publicly Accessible Pages */
-app.get('/', (req, res) => res.render("home"));
-// app.get('/campaign/:id', routes.campaign);
+app.get('/', routes.home);
+
+app.get('/apply', (req, res) => res.render("apply"));
+app.post('/apply', routes.apply);
+
+app.post('/execute', routes.execute);
+
+app.get('/campaign/:id', routes.campaign);
 
 /* Authentication based routes */
 app.get('/login', (req, res) => res.render('login'));
